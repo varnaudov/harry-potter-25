@@ -1,0 +1,219 @@
+/* =========================================================
+   Harry Potter 25th Anniversary fan site – main styles
+   Change the colours here and the whole site changes!
+   ========================================================= */
+:root {
+  --night: #0b0a1f;
+  --night-2: #16143a;
+  --gold: #e8c26a;
+  --gold-deep: #b98a22;
+  --parchment: #f3e5c0;
+  --text: #ece6d6;
+  --red: #a4161a;
+  --green: #1d6b3a;
+  --blue: #1e3a8a;
+  --yellow: #e6b422;
+  --heading: 'Cinzel', 'Palatino Linotype', Georgia, serif;
+  --body: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at top, var(--night-2), var(--night) 60%) fixed;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--gold); }
+h1, h2, h3 { font-family: var(--heading); font-weight: 600; margin: 0; }
+h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--gold);
+  margin-bottom: .6rem;
+  text-shadow: 0 0 18px rgba(232, 194, 106, .35);
+}
+h2::after { content: "✦"; display: block; font-size: 1rem; margin-top: .3rem; opacity: .8; }
+
+/* ---------- stars ---------- */
+#stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.star {
+  position: absolute; border-radius: 50%; background: #fff;
+  animation: twinkle var(--d, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes twinkle { 0%,100% { opacity: .15; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.2); } }
+
+/* wand sparkle trail */
+.sparkle {
+  position: fixed; z-index: 50; pointer-events: none; font-size: 14px; color: var(--gold);
+  animation: sparkle .9s ease-out forwards;
+}
+@keyframes sparkle {
+  from { opacity: 1; transform: translate(0, 0) scale(1); }
+  to   { opacity: 0; transform: translate(var(--dx, 0), var(--dy, 30px)) scale(.2) rotate(120deg); }
+}
+
+main, footer, .hero { position: relative; z-index: 1; }
+
+/* ---------- hero ---------- */
+.hero {
+  min-height: 92vh;
+  display: grid; place-items: center; text-align: center;
+  padding: 5rem 1rem 6rem;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11,10,31,.35) 0%, rgba(11,10,31,.55) 55%, var(--night) 100%),
+    url("../img/castle.jpg") center 35% / cover no-repeat;
+  animation: slowzoom 30s ease-in-out infinite alternate;
+}
+@keyframes slowzoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+.hero-text { position: relative; }
+.eyebrow { font-style: italic; font-size: 1.5rem; color: var(--parchment); margin: 0 0 .3rem; text-shadow: 0 2px 8px #000; }
+.hero h1 {
+  font-size: clamp(2.6rem, 10vw, 6rem);
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: .04em;
+  text-shadow: 0 0 25px rgba(232,194,106,.5), 0 4px 12px #000;
+  line-height: 1.05;
+}
+.hero h1 span {
+  display: block;
+  font-size: clamp(1.2rem, 4.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--parchment);
+  letter-spacing: .12em;
+  margin-top: .6rem;
+}
+.years { font-family: var(--heading); font-size: 1.6rem; color: var(--gold); margin: 1rem 0 1.6rem; text-shadow: 0 2px 8px #000; }
+
+.btn {
+  display: inline-block; cursor: pointer;
+  font-family: var(--heading); font-size: 1rem; letter-spacing: .06em;
+  color: var(--night); background: linear-gradient(180deg, #f6dc92, var(--gold-deep));
+  border: 0; border-radius: 999px; padding: .8rem 1.6rem; text-decoration: none;
+  box-shadow: 0 4px 0 #7a5a12, 0 8px 20px rgba(0,0,0,.4);
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #7a5a12; }
+
+.nav {
+  position: absolute; left: 0; right: 0; bottom: 1rem;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; padding: 0 1rem;
+}
+.nav a { font-family: var(--heading); font-size: .85rem; letter-spacing: .08em; text-decoration: none; color: var(--parchment); }
+.nav a:hover { color: var(--gold); }
+
+/* ---------- sections ---------- */
+.section { max-width: 1000px; margin: 0 auto; padding: 4rem 1.2rem 1rem; }
+.lead { text-align: center; font-style: italic; margin: 0 auto 2rem; max-width: 40ch; }
+.intro { max-width: 52ch; margin: 0 auto; padding: 3rem 1.2rem 0; text-align: center; font-size: 1.45rem; }
+
+/* scroll-reveal (js adds .in when visible; without JS everything shows) */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- timeline ---------- */
+.timeline { list-style: none; margin: 2rem 0 0; padding: 0 0 0 1.2rem; border-left: 3px solid var(--gold-deep); }
+.timeline li { position: relative; display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; margin-bottom: 1.6rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -1.78rem; top: .55rem; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 10px var(--gold);
+}
+.timeline .year { font-family: var(--heading); font-size: 1.4rem; color: var(--gold); }
+.timeline h3 { font-size: 1.15rem; color: var(--parchment); }
+.timeline p { margin: .2rem 0 0; }
+.timeline li.big h3 { font-size: 1.5rem; color: var(--gold); }
+.timeline li.big::before { width: 22px; height: 22px; left: -1.98rem; top: .4rem; }
+
+/* ---------- photo cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.4rem; }
+.card, .platform {
+  margin: 0; background: rgba(255,255,255,.05); border: 1px solid rgba(232,194,106,.35);
+  border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+.card img { width: 100%; height: 200px; object-fit: cover; }
+figcaption { padding: .9rem 1.1rem 1.2rem; }
+figcaption h3 { color: var(--gold); font-size: 1.15rem; margin-bottom: .3rem; }
+figcaption p { margin: 0; font-size: 1.1rem; }
+
+/* ---------- Platform 9¾ (easter egg) ---------- */
+.platform { margin-top: 1.6rem; display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; }
+.platform-photo { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.platform-photo img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+/* Sits exactly on top of the sign in the photo. Positions are percentages so it scales. */
+.sign-hotspot {
+  position: absolute; left: 57.5%; top: 29%; width: 16%; height: 11%;
+  background: transparent; border: 0; padding: 0; cursor: pointer; border-radius: 6px;
+}
+.sign-hotspot:hover, .sign-hotspot:focus-visible {
+  outline: 2px solid rgba(232,194,106,.9); box-shadow: 0 0 22px 6px rgba(232,194,106,.6);
+}
+.ripple { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.platform-photo.go .ripple {
+  opacity: 1;
+  background: radial-gradient(circle at 65% 34%, rgba(255,255,255,.9), rgba(232,194,106,.5) 30%, transparent 60%);
+  animation: ripple .9s ease-in forwards;
+}
+@keyframes ripple { from { transform: scale(.1); opacity: 1; } to { transform: scale(3); opacity: 1; } }
+.platform-photo.go img { animation: shake .5s linear infinite; }
+@keyframes shake { 25% { transform: translateX(-3px) rotate(-.3deg); } 75% { transform: translateX(3px) rotate(.3deg); } }
+#whoosh {
+  position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: 0; background: #fff;
+  transition: opacity .6s ease-in;
+}
+#whoosh.on { opacity: 1; }
+
+/* ---------- houses ---------- */
+.houses { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.house {
+  font-family: var(--body); font-size: 1.15rem; color: #fff; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: 1.2rem .8rem;
+  border: 3px solid var(--gold-deep); border-radius: 18px 18px 40px 40px;
+  transition: transform .2s, box-shadow .2s;
+}
+.house .emoji { font-size: 3rem; transition: transform .3s; }
+.house b { font-family: var(--heading); font-size: 1.25rem; }
+.house i { opacity: .9; }
+.house:hover, .house.picked { transform: translateY(-6px) scale(1.04); box-shadow: 0 12px 30px rgba(0,0,0,.5), 0 0 25px rgba(232,194,106,.5); }
+.house:hover .emoji, .house.picked .emoji { transform: scale(1.25) rotate(-6deg); }
+.gryffindor { background: linear-gradient(160deg, #c0272d, #6e0d12); }
+.hufflepuff { background: linear-gradient(160deg, #f0c53d, #8a6a05); color: #1a1500; }
+.ravenclaw  { background: linear-gradient(160deg, #2f55b8, #11224f); }
+.slytherin  { background: linear-gradient(160deg, #2a9b55, #0d3d20); }
+.hat-row { text-align: center; margin-top: 1.6rem; }
+.hat-msg { min-height: 2.2rem; margin: 1rem 0 0; font-size: 1.4rem; color: var(--gold); }
+
+/* ---------- facts ---------- */
+.facts { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .9rem; }
+.facts li {
+  background: rgba(255,255,255,.05); border-left: 4px solid var(--gold);
+  padding: .9rem 1.2rem; border-radius: 0 12px 12px 0;
+}
+
+/* ---------- footer ---------- */
+footer { text-align: center; padding: 4rem 1.2rem 3rem; }
+footer .small { font-size: .95rem; opacity: .75; max-width: 60ch; margin: .6rem auto 0; }
+
+/* ---------- small screens ---------- */
+@media (max-width: 700px) {
+  body { font-size: 1.15rem; }
+  .platform { grid-template-columns: 1fr; }
+  .timeline li { grid-template-columns: 1fr; gap: 0; }
+  .timeline .year { font-size: 1.15rem; }
+  .hero { min-height: 85vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}

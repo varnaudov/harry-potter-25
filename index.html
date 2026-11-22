@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harry Potter: 25 Years of Magic – A Fan Tribute</title>
+  <meta name="description" content="A fan tribute to the 25th anniversary of the first Harry Potter film (2001–2026).">
+  <!-- A tiny lightning-bolt icon for the browser tab -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Twinkling stars are added here by js/main.js -->
+  <div id="stars" aria-hidden="true"></div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero-bg" role="img" aria-label="Alnwick Castle in Northumberland, England"></div>
+    <div class="hero-text">
+      <p class="eyebrow">A tribute to the</p>
+      <h1>Harry Potter<span>25 Years of Movie Magic</span></h1>
+      <p class="years">2001 &nbsp;⚡&nbsp; 2026</p>
+      <a class="btn" href="#timeline">Start the journey ↓</a>
+    </div>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#timeline">Timeline</a>
+      <a href="#places">Magical Places</a>
+      <a href="#houses">Houses</a>
+      <a href="#facts">Did You Know?</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ INTRO ============ -->
+    <section class="intro reveal">
+      <p>
+        In November 2001, a boy with a lightning-shaped scar flew onto cinema screens in
+        <em>Harry Potter and the Philosopher's Stone</em>. Twenty-five years later, millions of us
+        still love the castle, the owls, the spells, and the friends. This page is a little
+        celebration of all of it.
+      </p>
+    </section>
+
+    <!-- ============ TIMELINE ============ -->
+    <section id="timeline" class="section">
+      <h2>The Story So Far</h2>
+      <ol class="timeline">
+        <li class="reveal"><span class="year">1997</span><div><h3>The very first book</h3><p>J.K. Rowling's first book, <em>Philosopher's Stone</em>, is published in the UK in June.</p></div></li>
+        <li class="reveal big"><span class="year">2001</span><div><h3>The first film! ⚡</h3><p>Harry Potter arrives in cinemas in November. Today we celebrate its <strong>25th birthday</strong>.</p></div></li>
+        <li class="reveal"><span class="year">2002</span><div><h3>Chamber of Secrets</h3><p>A flying car, a giant snake and a very brave second year.</p></div></li>
+        <li class="reveal"><span class="year">2004</span><div><h3>Prisoner of Azkaban</h3><p>Time-turners, a hippogriff and a rather scruffy dog.</p></div></li>
+        <li class="reveal"><span class="year">2005</span><div><h3>Goblet of Fire</h3><p>The Triwizard Tournament comes to Hogwarts.</p></div></li>
+        <li class="reveal"><span class="year">2007</span><div><h3>Order of the Phoenix</h3><p>Dumbledore's Army learns to defend itself.</p></div></li>
+        <li class="reveal"><span class="year">2009</span><div><h3>Half-Blood Prince</h3><p>Potions, secrets and a very lucky bottle of Felix Felicis.</p></div></li>
+        <li class="reveal"><span class="year">2010 – 11</span><div><h3>Deathly Hallows, Parts 1 &amp; 2</h3><p>The adventure comes to a grand finish.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- ============ MAGICAL PLACES ============ -->
+    <section id="places" class="section">
+      <h2>Magical Places You Can Really Visit</h2>
+      <p class="lead">Some of the magic in the films was filmed at real places. These photos are real, too!</p>
+
+      <div class="cards">
+        <figure class="card reveal">
+          <img src="img/castle.jpg" alt="Alnwick Castle, a large stone castle with towers behind a green lawn" loading="lazy">
+          <figcaption>
+            <h3>Alnwick Castle</h3>
+            <p>This castle in Northumberland stood in for Hogwarts. Harry's first broomstick lesson was filmed here!</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card reveal">
+          <img src="img/viaduct.jpg" alt="A steam train with white smoke crossing the curved Glenfinnan Viaduct" loading="lazy">
+          <figcaption>
+            <h3>Glenfinnan Viaduct</h3>
+            <p>The Hogwarts Express chugs over this curvy bridge in Scotland. Look at that steam!</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card reveal">
+          <img src="img/owl.jpg" alt="A white snowy owl perched in the snow" loading="lazy">
+          <figcaption>
+            <h3>Snowy Owl</h3>
+            <p>Hedwig, Harry's loyal owl, was played by real snowy owls. Hoot hoot!</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Platform 9¾ — the secret door is somewhere in here... -->
+      <figure class="platform reveal">
+        <div class="platform-photo" id="platformPhoto">
+          <img src="img/platform.jpg" alt="The Platform 9 and three-quarters sign on a brick wall at King's Cross station, with a luggage trolley half-way through the wall">
+          <!-- ✨ THE EASTER EGG ✨  Click the sign to find the secret room. -->
+          <button type="button" id="secretDoor" class="sign-hotspot" aria-label="Platform nine and three quarters sign"></button>
+          <div class="ripple" aria-hidden="true"></div>
+        </div>
+        <figcaption>
+          <h3>Platform 9¾, King's Cross Station</h3>
+          <p>
+            Muggles just see a brick wall. Harry, Ron and Hermione know better.
+            (The real station has a famous sign and a trolley so everybody can have a photo!)
+          </p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ HOUSES ============ -->
+    <section id="houses" class="section">
+      <h2>Which House Are You?</h2>
+      <p class="lead">Tap a house to learn about it, or ask the hat to choose for you.</p>
+      <div class="houses" id="houses-grid">
+        <button class="house gryffindor" data-house="Gryffindor"><span class="emoji">🦁</span><b>Gryffindor</b><i>Brave &amp; daring</i></button>
+        <button class="house hufflepuff" data-house="Hufflepuff"><span class="emoji">🦡</span><b>Hufflepuff</b><i>Loyal &amp; kind</i></button>
+        <button class="house ravenclaw" data-house="Ravenclaw"><span class="emoji">🦅</span><b>Ravenclaw</b><i>Clever &amp; curious</i></button>
+        <button class="house slytherin" data-house="Slytherin"><span class="emoji">🐍</span><b>Slytherin</b><i>Cunning &amp; ambitious</i></button>
+      </div>
+      <div class="hat-row">
+        <button class="btn" id="hatBtn" type="button">🎩 Ask the Sorting Hat</button>
+        <p id="hatMsg" class="hat-msg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ============ FUN FACTS ============ -->
+    <section id="facts" class="section">
+      <h2>Did You Know?</h2>
+      <ul class="facts">
+        <li class="reveal">🎬 The first film was directed by <strong>Chris Columbus</strong>.</li>
+        <li class="reveal">🎵 The famous music, <strong>“Hedwig's Theme”</strong>, was composed by John Williams for the first film.</li>
+        <li class="reveal">🚂 The Hogwarts Express in the films was a real steam engine called <strong>Olton Hall</strong>.</li>
+        <li class="reveal">🧒 Daniel, Rupert and Emma were only about <strong>ten or eleven</strong> years old when they were chosen to play Harry, Ron and Hermione.</li>
+        <li class="reveal">🧱 The film's King's Cross platform scenes were actually shot at <strong>platforms 4 and 5</strong>, because they looked more magical.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>⚡ Made with love for the 25th anniversary of Harry Potter ⚡</p>
+    <p class="small">
+      This is an unofficial, non-commercial fan page. It is not affiliated with, or endorsed by,
+      Warner Bros., J.K. Rowling or the Harry Potter publishers. Harry Potter is a trademark of its owners.
+      <a href="credits.html">Photo credits</a>
+    </p>
+  </footer>
+
+  <!-- Full-screen flash used when the easter egg is triggered -->
+  <div id="whoosh" aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
